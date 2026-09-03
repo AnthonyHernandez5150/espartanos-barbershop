@@ -1368,6 +1368,16 @@ a.info-item:focus-visible {
   white-space: nowrap;
 }
 
+.developer-credit {
+  color: #c4bfae;
+  white-space: nowrap;
+}
+
+.developer-credit strong {
+  color: var(--gold-bright);
+  font-weight: 900;
+}
+
 .mobile-cta {
   display: none;
 }
