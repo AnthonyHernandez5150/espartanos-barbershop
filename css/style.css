@@ -1528,13 +1528,13 @@ button:focus-visible {
   }
 
   .brand-link .wide-logo-frame {
-    display: none;
+    display: block;
+    width: clamp(120px, 36vw, 148px);
+    flex: 0 0 auto;
   }
 
   .brand-wordmark {
-    display: block;
-    font-size: clamp(1.18rem, 5.45vw, 1.5rem);
-    white-space: nowrap;
+    display: none;
   }
 
   .site-nav {
@@ -1602,21 +1602,20 @@ button:focus-visible {
   }
 
   .hero-layout {
-    width: 100%;
     gap: 2rem;
     min-width: 0;
     overflow: clip;
   }
 
   .hero-copy {
-    width: calc(100vw - 30px);
+    width: 100%;
     min-width: 0;
     max-width: 100%;
   }
 
   .hero-brand {
     order: -1;
-    width: min(calc(100vw - 30px), 340px);
+    width: min(100%, 340px);
     justify-self: start;
   }
 
