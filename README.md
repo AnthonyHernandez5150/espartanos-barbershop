@@ -4,6 +4,9 @@ A fast, static Spanish-language website for Espartano's Barbershop in Choluteca,
 
 ## Structure
 
+- trabaja-con-nosotros/ - Spanish hiring page and current vacancy
+- trabaja-con-nosotros/barbero-con-experiencia/ - application form for the current vacancy
+- gracias/ - form-submission confirmation page
 - index.html — Spanish homepage (primary)
 - css/style.css — shared responsive styling
 - js/main.js — mobile navigation and small enhancements
@@ -24,3 +27,7 @@ Because this is plain HTML, CSS, and JavaScript, no build step is required. Open
 5. Connect the published domain to Google Search Console and submit sitemap.xml.
 
 The site intentionally does not include prices, unverified rankings, fake reviews, autoplay media, newsletter popups, or account creation.
+
+## Hiring form
+
+The barber application form uses Netlify Forms. Before relying on it in production, make sure Forms -> Form detection is enabled in Netlify, deploy the site, confirm the `solicitud-barbero` form appears in the Forms dashboard, then add the intended email under Forms -> Submission notifications. Do not expose the recipient email on the public page.
