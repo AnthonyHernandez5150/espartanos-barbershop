@@ -1,4 +1,10 @@
 (() => {
+  // Identity email links may land on the homepage. Keep tokens in the fragment.
+  const authHash = new URLSearchParams(window.location.hash.slice(1));
+  if (['invite_token', 'confirmation_token', 'recovery_token', 'access_token', 'email_change_token'].some(key => authHash.has(key)) && window.location.pathname !== '/admin/galeria/') {
+    window.location.replace('/admin/galeria/' + window.location.hash);
+    return;
+  }
   const body = document.body;
   const menuButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector("#site-nav");

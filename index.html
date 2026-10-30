@@ -10,6 +10,7 @@
     <link rel="canonical" href="https://espartanosbarbershop.com/">
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_HN">
@@ -118,6 +119,7 @@
           <a href="#nosotros">Nosotros</a>
           <a href="#ubicacion">Ubicación</a>
           <a href="#contacto">Contacto</a>
+          <a href="nuestros-trabajos/">Nuestros Trabajos</a>
           <a href="trabaja-con-nosotros/">Trabaja con nosotros</a>
         </nav>
 
@@ -258,6 +260,22 @@
         </div>
       </section>
 
+      <section class="gallery-preview section-pad" id="trabajos" aria-labelledby="trabajos-titulo">
+        <div class="container">
+          <div class="gallery-preview-head">
+            <div class="section-heading">
+              <p class="eyebrow">Galería</p>
+              <h2 id="trabajos-titulo">Nuestros Trabajos</h2>
+              <p>Una muestra de cortes, barba y estilos. Muy pronto mostraremos trabajos reales de la barbería.</p>
+            </div>
+            <a class="button button-primary gallery-preview-button" href="/nuestros-trabajos/">VER TODOS LOS TRABAJOS</a>
+          </div>
+
+          <div class="gallery-grid" data-gallery-preview data-limit="6"></div>
+          <p class="gallery-preview-note">Cargando fotos…</p>
+        </div>
+      </section>
+
       <section class="payments section-pad" id="pagos" aria-labelledby="pagos-titulo">
         <div class="container payment-shell">
           <div class="payment-copy">
@@ -374,6 +392,7 @@
           <nav aria-label="Navegación del pie de página">
             <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
+            <a href="nuestros-trabajos/">Nuestros Trabajos</a>
             <a href="#ubicacion">Ubicación</a>
             <a href="trabaja-con-nosotros/">Trabaja con nosotros</a>
           </nav>
@@ -399,5 +418,7 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/gallery-data.js"></script>
+    <script src="js/gallery.js"></script>
   </body>
 </html>

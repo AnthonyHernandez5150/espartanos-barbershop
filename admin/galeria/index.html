@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es-HN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090908">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="description" content="Administración de fotos de Espartano's Barbershop.">
+    <title>Galería de trabajos | Administración | Espartano's Barbershop</title>
+
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin-gallery.css">
+
+  </head>
+  <body class="admin-page">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header admin-header">
+      <div class="nav-shell">
+        <a class="brand-link" href="/" aria-label="Espartano's Barbershop, inicio">
+          <picture class="wide-logo-frame">
+            <img src="/images/espartanos-barbershop-wide-logo.png" alt="Espartano's Barbershop" width="1680" height="945">
+          </picture>
+          <span class="brand-wordmark" aria-hidden="true">ESPARTANO’S</span>
+        </a>
+
+        <div class="admin-header-actions">
+          <button class="admin-action-button" type="button" data-logout hidden>Cerrar sesión</button>
+          <a class="text-link" href="/">Volver al sitio <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main id="contenido" class="admin-main">
+      <section class="admin-hero">
+        <div class="container">
+          <div class="admin-hero-inner">
+            <div>
+              <p class="eyebrow">Panel de administración</p>
+              <h1>GALERÍA DE<br><span>TRABAJOS</span></h1>
+              <p>Organiza las fotos que se mostrarán en la galería pública de Espartano’s Barbershop.</p>
+            </div>
+            <button class="button button-primary" type="button" data-add-photo hidden>+ AGREGAR FOTO</button>
+          </div>
+
+          <section class="admin-panel auth-panel" data-auth-panel aria-label="Acceso a la galería">
+            <h2>Iniciar sesión</h2>
+            <p>Usa tu cuenta invitada para administrar las fotos de tu negocio.</p>
+            <form class="admin-form" data-login-form>
+              <div class="field"><label for="login-email">Correo electrónico</label><input id="login-email" name="email" type="email" autocomplete="username" required></div>
+              <div class="field"><label for="login-password">Contraseña</label><input id="login-password" name="password" type="password" autocomplete="current-password" required></div>
+              <button class="button button-primary" type="submit">Entrar</button>
+              <button class="admin-action-button" type="button" data-forgot-password>Olvidé mi contraseña</button>
+            </form>
+            <form class="admin-form" data-password-form hidden>
+              <div class="field"><label for="new-password">Nueva contraseña (mínimo 10 caracteres)</label><input id="new-password" name="password" type="password" minlength="10" autocomplete="new-password" required></div>
+              <button class="button button-primary" type="submit">Guardar contraseña</button>
+            </form>
+            <p data-auth-status role="status" aria-live="polite"></p>
+            <noscript>Activa JavaScript para iniciar sesión.</noscript>
+          </section>
+        </div>
+      </section>
+
+      <section class="admin-workspace" data-admin-workspace hidden aria-label="Administración de la galería">
+        <div class="container admin-layout">
+          <section class="admin-panel" data-admin-form-panel tabindex="-1" aria-labelledby="admin-form-title">
+            <div class="admin-panel-heading">
+              <p class="eyebrow">Fotos del negocio</p>
+              <h2 id="admin-form-title">Agregar foto</h2>
+              <p>Agrega fotos de tus cortes, equipo o local. Publica solo fotos que tengas permiso de compartir.</p>
+            </div>
+
+            <form class="admin-form" data-admin-form>
+              <div class="form-grid">
+                <div class="field field-full">
+                  <label for="foto">Seleccionar foto <span aria-hidden="true">*</span></label>
+                  <label class="admin-file-picker" for="foto">
+                    <input class="admin-file-input" id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/webp" required data-photo-input>
+                    <span class="admin-file-icon" aria-hidden="true">＋</span>
+                    <span class="admin-file-title">Seleccionar foto</span>
+                    <span class="admin-file-name" data-file-name>Ningún archivo seleccionado</span>
+                    <small>JPG, PNG o WebP, hasta 20 MB. Se optimiza a un máximo de 3 MB al subir.</small>
+                  </label>
+                </div>
+
+                <div class="field field-full">
+                  <div class="admin-photo-preview" data-photo-preview hidden>
+                    <img data-photo-preview-image alt="" width="74" height="74">
+                    <p><strong>Vista previa</strong>Revisa tu foto antes de guardar.</p>
+                  </div>
+                </div>
+
+                <div class="field field-full">
+                  <label for="categoria">Categoría <span aria-hidden="true">*</span></label>
+                  <select id="categoria" name="categoria" required>
+                    <option value="" selected disabled>Selecciona una categoría</option>
+                    <option value="Cortes">Cortes</option>
+                    <option value="Barba">Barba</option>
+                    <option value="Diseños">Diseños</option>
+                    <option value="Cejas">Cejas</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                </div>
+
+                <div class="field field-full">
+                  <label for="descripcion">Descripción opcional</label>
+                  <textarea id="descripcion" name="descripcion" rows="3" maxlength="120" placeholder="Ejemplo: fade con acabado limpio"></textarea>
+                </div>
+
+                <fieldset class="field field-full admin-radio-field">
+                  <legend>Mostrar en la página principal</legend>
+                  <div class="admin-radio-row">
+                    <label class="admin-radio-option"><input type="radio" name="mostrar-inicio" value="si"> Sí</label>
+                    <label class="admin-radio-option"><input type="radio" name="mostrar-inicio" value="no" checked> No</label>
+                  </div>
+                </fieldset>
+                <label class="form-consent field-full"><input name="publicada" type="checkbox" checked><span>Publicar en la galería</span></label>
+              </div>
+
+              <label class="form-consent">
+                <input name="permiso" type="checkbox" value="si" required>
+                <span>Confirmo que tengo permiso para publicar esta foto. <strong aria-hidden="true">*</strong></span>
+              </label>
+
+              <button class="button button-primary form-submit" type="submit">PUBLICAR FOTO</button>
+              <p class="admin-form-status" data-admin-form-status role="status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="admin-panel" aria-labelledby="admin-list-title">
+            <div class="admin-list-heading">
+              <div>
+                <p class="eyebrow">Galería actual</p>
+                <h2 id="admin-list-title">Trabajos</h2>
+              </div>
+              <span class="admin-count" data-admin-count>0 fotos</span>
+            </div>
+
+            <p class="admin-list-note">Tus cambios se guardan y se muestran en la página pública.</p>
+
+            <ul class="admin-gallery-list" data-admin-list></ul>
+            <noscript>
+              <p class="admin-list-note">Activa JavaScript para administrar las fotos.</p>
+            </noscript>
+            <p class="admin-list-status" data-admin-list-status role="status" aria-live="polite"></p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="admin-footer">
+      <div class="container">
+        <span>Administración · Espartano’s Barbershop</span>
+        <span>© <span data-current-year>2026</span> · <a href="/">Volver al sitio</a></span>
+      </div>
+    </footer>
+
+    <dialog class="admin-dialog" data-delete-dialog aria-labelledby="delete-title" aria-describedby="delete-description">
+      <div class="admin-dialog-inner">
+        <p class="eyebrow">Confirmar eliminación</p>
+        <h2 id="delete-title">¿Eliminar esta foto?</h2>
+        <p id="delete-description" data-delete-message>La foto se eliminará permanentemente.</p>
+        <div class="admin-dialog-actions">
+          <button class="button button-secondary" type="button" data-delete-cancel>Cancelar</button>
+          <button class="button admin-danger-button" type="button" data-delete-confirm>Sí, eliminar</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="/js/main.js"></script>
+    <script type="module" src="/js/admin-gallery.bundle.js"></script>
+  </body>
+</html>

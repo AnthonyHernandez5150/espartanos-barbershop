@@ -14,7 +14,7 @@ A fast, static Spanish-language website for Espartano's Barbershop in Choluteca,
 
 ## Local preview
 
-Because this is plain HTML, CSS, and JavaScript, no build step is required. Open index.html directly or serve the folder with any static-file server, for example:
+The public pages are plain HTML, CSS, and JavaScript. The admin login bundles the official Identity SDK with `npm run build`. Use Netlify Dev for the Functions and Blobs endpoints; a static-file server can preview layout only:
 
     npx serve .
 
@@ -30,4 +30,14 @@ The site intentionally does not include prices, unverified rankings, fake review
 
 ## Hiring form
 
-The barber application form uses Netlify Forms. Before relying on it in production, make sure Forms -> Form detection is enabled in Netlify, deploy the site, confirm the `solicitud-barbero` form appears in the Forms dashboard, then add the intended email under Forms -> Submission notifications. Do not expose the recipient email on the public page.
+The barber application form uses Netlify Forms. Form detection and submission notifications are configured in the Netlify dashboard. Do not expose the recipient email on the public page.
+
+## Gallery administration
+
+- Public gallery: `/nuestros-trabajos/`. Owner login: `/admin/galeria/` (Spanish only).
+- Run `npm ci` then `npm run build` to bundle the official Identity SDK for the browser. No framework is used. Run `npm test` for server authorization and storage-operation checks.
+- Netlify runs the build and deploys the two Functions automatically. The site-wide `gallery` Blobs store is created on first use and survives deployments. No API token or Git Gateway is required.
+- Keep Identity registration **Invite only**. Manually invite Anthony first, accept the invitation on the site, and add the **gallery-editor** role to that Identity user in Netlify. Sign out and back in after assigning a role. Repeat for the business owner after testing. An invited user without that role cannot access photos in the dashboard or change anything.
+- Invitation and recovery links landing on the homepage are forwarded to the gallery login. Photos can be JPEG/PNG/WebP up to 20 MB in the browser; they are resized to 1800px, re-encoded as JPEG to remove metadata, and must be under 3 MB on the server.
+- After deploying, test invitation, login, upload, hide/publish, feature, edit, delete, password recovery, and logout with an authorized user. Local tests never disable authentication.
+- Gallery changes are stored separately from Git; a Git rollback does not restore deleted photos. Keep originals in your own photo backup.

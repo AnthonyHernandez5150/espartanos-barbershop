@@ -1,0 +1,15 @@
+{
+  "name": "espartanos-barbershop",
+  "private": true,
+  "scripts": {
+    "build": "esbuild js/admin-gallery.js --bundle --platform=browser --format=esm --outfile=js/admin-gallery.bundle.js",
+    "test": "node --test tests/gallery.test.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "11.1.7",
+    "@netlify/identity": "2.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

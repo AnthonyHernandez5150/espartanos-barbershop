@@ -1,0 +1,3 @@
+node_modules/
+.netlify/
+js/admin-gallery.bundle.js
